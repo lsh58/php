@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>STORAGE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="popup">
+        <img src="img/module_table_top.png" alt="">
+        <input type="checkbox" name="day">
+        <button>닫기</button>
+    </div>
+
+    <script>
+        //localStorage(5Mb)
+        //set
+        localStorage.oneday = 'popup1';
+        localStorage.twoday = 'popup2';
+        localStorage.setItem('thrday', 'popup3');
+
+        //get
+        // alert(localStorage.twoday);
+        // alert(localStorage.getItem('oneday'));
+        // alert(localStorage.thrday);
+
+        //remove
+        // localStorage.removeItem('thrday');
+        // localStorage.clear();
+
+        //cookie(4Kb)
+        var popup = document.querySelector('.popup');
+        var input = document.querySelector('.popup input');
+        var button = document.querySelector('.popup button');
+
+        setCookie('twoday', 'event', 20000);
+
+        button.addEventListener('click', function () {
+            if (input.checked) {
+                setCookie('oneday', 'popup', 10000);
+            }
+            popup.style.display = 'none';
+        });
+
+        function setCookie(name, value, time) {
+            var today = new Date();
+            today.setTime(today.getTime() + time);
+            document.cookie = `${name}=${value}; expires=${today.toUTCString()}`;
+        }
+        function getCookie() {
+            if (document.cookie.match('popup') != null) {// match()함수는 인자에 포함된 문자를 찾으면 이를 반환함 (값이 다르면 null출력)
+                popup.style.display = 'none';
+            }
+            else {
+                popup.style.display = 'block';
+            }
+        }
+        getCookie();
+
+    </script>
+</body>
+
+</html>

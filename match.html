@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>STORAGE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="match"> </div>
+
+    <script>
+        var str0 = 'popup';
+        var reg = str0.match('pop');
+
+        if (!reg) {
+            document.querySelector('.match').innerHTML = reg;
+        }
+
+        var str1 = "javascript자바스크java +0*/_ HTML5";
+        // var regEXp1 = new RegExp(ab + b);
+        var regExp1 = str1.match(/java/ig);
+        var regExp2 = str1.match(/scripthtml/ig);
+
+        with (document.querySelector('.match')) {
+            innerHTML = "<br>" + regExp1;
+            innerHTML += "<br>" + regExp2;
+        }
+
+
+    </script>
+</body>
+
+</html>
